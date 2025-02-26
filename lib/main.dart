@@ -46,94 +46,97 @@ class _loginState extends State<login> {
     return Scaffold(
       body: 
       Padding(
-        padding: const EdgeInsets.all(18.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        padding:  EdgeInsets.fromLTRB(20, 60, 20, 0),
 
-          children: [
-            Center(
-              child: Image.asset('asset/paytren.png'),
-            ),
+        child:SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+
+            children: [
+              Center(
+                child: Image.asset('asset/paytren.png'),
+              ),
 
 
 
-            SizedBox(height: 30,),
-            Center(
-              child: SizedBox(
-                width: 400,
-              child: TextField(
-                decoration: InputDecoration(
-                    border : OutlineInputBorder(borderRadius: BorderRadius.circular(8),
+              SizedBox(height: 30,),
+              Center(
+                  child: SizedBox(
+                    width: 400,
+                    child: TextField(
+                      decoration: InputDecoration(
+                          border : OutlineInputBorder(borderRadius: BorderRadius.circular(8),
+
+                          ),
+                          labelText: "Username",
+                          hintText: "Enter Username"
+
+                      ),
+
 
                     ),
-                    labelText: "Username",
-                    hintText: "Enter Username"
+                  )
+              ),
+              SizedBox(height: 20,),
+              Center(
+                  child: SizedBox(
+                    width: 400,
+                    child:TextField(
+                      obscureText: true,
+
+                      decoration: InputDecoration(
+
+                        border : OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+
+                        labelText: "Password",
+                        hintText: "Enter Password",
+
+
+                      ),
+
+
+                    ),
+                  )
+              ),
+              SizedBox(height: 20,),
+              Center(
+                child: SizedBox(
+                  width: 400,
+                  child: ElevatedButton(
+                    onPressed: handleSubmit,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(33, 50, 156, 1), // Set button color
+                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12), // Adjust padding
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8), // Rounded corners
+                      ),
+                    ),
+                    child: Text("Login",style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),),),
 
                 ),
-
+              ),
+              SizedBox(height: 20),
+              Opacity(opacity: 0.7,
+                child: Text("Or Sign Up With",style: TextStyle(fontSize: 16,),),
 
               ),
-              )
-            ),
-            SizedBox(height: 20,),
-            Center(
-              child: SizedBox(
-                width: 400,
-            child:TextField(
-        obscureText: true,
-
-        decoration: InputDecoration(
-
-          border : OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-
-          labelText: "Password",
-          hintText: "Enter Password",
-
-
+              SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: 20,),
+                  _buildSocialButton(FontAwesomeIcons.tiktok, Colors.white,Colors.black),
+                  SizedBox(width: 20,),
+                  _buildSocialButton(FontAwesomeIcons.facebook, Colors.white,Colors.blueAccent),
+                ],
+              ),
+            ],
+          ),
         ),
-
-
-            ),
-            )
-            ),
-            SizedBox(height: 20,),
-            Center(
-              child: SizedBox(
-                width: 400,
-        child: ElevatedButton(
-            onPressed: handleSubmit,
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromRGBO(33, 50, 156, 1), // Set button color
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12), // Adjust padding
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8), // Rounded corners
-              ),
-            ),
-            child: Text("Login",style: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),),),
-
-              ),
-            ),
-            SizedBox(height: 20),
-            Opacity(opacity: 0.7,
-            child: Text("Or Sign Up With",style: TextStyle(fontSize: 16,),),
-
-            ),
-            SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(width: 20,),
-                _buildSocialButton(FontAwesomeIcons.tiktok, Colors.white,Colors.black),
-                SizedBox(width: 20,),
-                _buildSocialButton(FontAwesomeIcons.facebook, Colors.white,Colors.blueAccent),
-              ],
-            ),
-          ],
-        ),
-      ),
+        )
       
     );
   }
